@@ -23,7 +23,8 @@
 
 body, html {
 	height: 80%;
-	font-family: OpenSans-Regular, sans-serif;
+  font-family: OpenSans-Regular, sans-serif;
+  background-color: #F4F4F6;
 }
 
 /*---------------------------------------------*/
@@ -154,9 +155,8 @@ iframe {
   width: 500px;
   background: #fff;
   overflow: hidden;
-
   box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0);
   -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
   -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
   -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
@@ -416,11 +416,14 @@ input.input100 {
 .admin-login {
   margin: 5% 10% 0% 10%;
 }
-form > div {
+.login100-form > div {
   width: 50%;
 }
-form > div > div {
-  margin: 3% 0%;
+.login100-form > div > div {
+  margin: 5% 0%;
+}
+.login-error {
+  color: #EF3B3A;
 }
 @media (max-width: 992px) {
   .alert-validate::before {

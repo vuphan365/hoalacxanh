@@ -1,12 +1,14 @@
 import React from 'react';
 import store from './store';
-import Routes from './routes/index';
+import {Router} from 'react-router';
+import {routeHistory} from './store'
+import routes from './routes/index';
 import { Provider } from 'react-redux';
 
 const App = () => {
   return (
     <Provider store={store}>
-      <Routes />
+      <Router routes={routes} history={routeHistory}/>
     </Provider>
   );
 }
