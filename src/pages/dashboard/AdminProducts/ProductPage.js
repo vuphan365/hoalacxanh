@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import TextEditor from '../../../components/TextEditor';
-import toastr from 'toastr';
 class ProductPage extends Component {
   renderProductTypes = () => {
     let options = []

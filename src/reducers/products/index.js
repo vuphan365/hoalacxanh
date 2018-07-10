@@ -18,7 +18,7 @@ const products = (state = initialState, action) => {
       return { ...state, products: state.products };
     case types.UPDATE_PRODUCT:
       // set status from action and return it
-      for (var product in state.products) {
+      for (let product in state.products) {
         if (state.products[product].productID === action.payload.product.productID) {
           state.products[product] = action.payload.product;
           break;
@@ -28,7 +28,7 @@ const products = (state = initialState, action) => {
     case types.DELETE_PRODUCT:
       // set status from action and return it
       let newProducts = [];
-      for (var product in state.products) {
+      for (let product in state.products) {
         let isFind = false;
         if (state.products[product].productID === action.payload.product.productID) {
           isFind = true;

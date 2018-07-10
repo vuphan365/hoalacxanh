@@ -136,7 +136,6 @@ class UpdateProduct extends Component {
         }
       }
     }
-
   }
   render() {
     return (

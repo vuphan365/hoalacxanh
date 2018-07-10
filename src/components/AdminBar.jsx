@@ -39,11 +39,11 @@ class AdminBar extends Component {
           <button className="btn btn-danger" onClick={() => {this.logOut()}}>Đăng xuất</button>
           </div>
           
-          <Link to="/admin/products" >Sản phẩm</Link>
-          <a href="#">Đơn hàng</a>
-          <a href="#">Bài viết</a>
-          <a href="#">Đổi mật khẩu</a>
-          <a href="#">Thêm quản trị</a>
+          <Link to="/admin/products">Sản phẩm</Link>
+          <Link to="/admin/orders">Đơn hàng</Link>
+          <Link to="/admin/blogs">Bài viết</Link>
+          <Link to="/admin/password">Đổi mật khẩu</Link>
+          <Link to="/admin/add">Thêm quản trị</Link>
         </div>
       </div>
     )

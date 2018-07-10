@@ -1,0 +1,7 @@
+// declare types of action
+export const types = {
+  SET_ORDERS: "MAIN/SET_ORDERS",
+  SET_VIEW_ORDERS: "MAIN/SET_VIEW_ORDERS",
+  UPDATE_ORDER : "MAIN/UPDATE_ORDER",
+  SET_STATUS_ORDERS : "MAIN/SET_STATUS_ORDERS"
+};

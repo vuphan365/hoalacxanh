@@ -1,31 +1,33 @@
-import { types } from "./constants";
 import * as adminFetch from '../../utils/adminFetch';
 import { BACKEND_URL } from '../../config/constants';
+import { types } from "./constants";
 import { storage } from '../../firebase';
-function loadAllProducts() {
+
+function loadAllBlogs() {
   return dispatch => {
     return new Promise ((resolve, reject) => {
-      const url = `${BACKEND_URL}/product/detail`;
+      const url = `${BACKEND_URL}/blog/detail`;
       adminFetch.get(url).then(res => {
         res.json().then(json => {
+          console.log(json);
           if (json.length > 0) {
-            dispatch(actions.setProducts(json));
+            dispatch(actions.setBlogs(json));
             resolve(true);
           }else reject();
         }).catch(() => reject());
       });
     });
-    
   }
 }
-function loadProduct(productID) {
+
+function loadBlog(blogID) {
   return dispatch => {
     return new Promise ((resolve, reject) => {
-      const url = `${BACKEND_URL}/product/detail/${productID}`;
+      const url = `${BACKEND_URL}/blog/detail/${blogID}`;
       adminFetch.get(url).then(res => {
         res.json().then(json => {
           if (json.length > 0) {
-            dispatch(actions.setProduct(json));
+            dispatch(actions.setBlog(json));
             resolve(true);
           }else reject();
         }).catch(() => reject());
@@ -33,20 +35,21 @@ function loadProduct(productID) {
     });
   }
 }
-function addProductToStore(product) {
+
+function addBlogToStore(blog) {
   return dispatch => {
     return new Promise ((resolve, reject) => {
-      const url = `${BACKEND_URL}/product/add/`;
-      const { productID, name, image, price, content, typeID } = product;
-      const body = JSON.stringify({ productID, name, image, price, content, typeID })
+      const url = `${BACKEND_URL}/blog/add/`;
+      const { name, image, content } = blog;
+      const body = JSON.stringify({ name, image, content })
       adminFetch.post(url, body).then(res => {
         res.json().then(json => {
           console.log(json);
           if (json.rowsAffected.length > 0) {
-            let productID = json.recordset[0].productID;
-            console.log(productID);
-            product.productID = productID;
-            dispatch(actions.addProduct(product));
+            let blogID = json.recordset[0].blogID;
+            console.log(blogID);
+            blog.blogID = blogID;
+            dispatch(actions.addBlog(blog));
             resolve(true);
           }else reject();
         }).catch(err => {
@@ -60,19 +63,20 @@ function addProductToStore(product) {
     });
   }
 }
-function editProductToStore(product) {
+
+function editBlogToStore(blog) {
   return dispatch => {
     console.log('edit');
     return new Promise ((resolve, reject) => {
-      const url = `${BACKEND_URL}/product/edit/${product.productID}`;
-      const { productID, name, image, price, content, typeID } = product;
-      const body = JSON.stringify({ productID, name, image, price, content, typeID })
+      const url = `${BACKEND_URL}/blog/edit/${blog.blogID}`;
+      const { name, image, content } = blog;
+      const body = JSON.stringify({ name, image, content })
       adminFetch.post(url, body).then(res => {
         res.json().then(json => {
           console.log(json)
           if (json.rowsAffected.length > 0) {
             console.log(json.rowsAffected[0]);
-            dispatch(actions.updateProduct(product));
+            dispatch(actions.updateBlog(blog));
             console.log('resolve true');
             resolve(true);
           }else reject();
@@ -107,18 +111,18 @@ function uploadImage(image) {
     })
   }
 }
-function deleteProductToStore(product){
+function deleteBlogToStore(blog){
   return dispatch => {
     return new Promise ((resolve, reject) => {
-      const url = `${BACKEND_URL}/product/delete/${product.productID}`;
-      const { productID } = product;
-      const body = JSON.stringify({ productID});
+      const url = `${BACKEND_URL}/product/delete/${blog.blogID}`;
+      const { blogID } = blog;
+      const body = JSON.stringify({ blogID});
       adminFetch.post(url, body).then(res => {
         res.json().then(json => {
           console.log(json);
           if (json.rowsAffected.length > 0) {
             console.log(json.rowsAffected[0]);
-            dispatch(actions.deleteProduct(product));
+            dispatch(actions.deleteBlog(blog));
             resolve(true);
           }else reject();
         }).catch(err => {
@@ -132,32 +136,31 @@ function deleteProductToStore(product){
     })
   }
 }
-
 export const actions = {
-  setProducts: (products, content) => ({
-    type: types.SET_PRODUCTS,
-    payload: { products, content }
+  setBlogs: (blogs, content) => ({
+    type: types.SET_BLOGS,
+    payload: { blogs, content }
   }),
-  setProduct: (product, content) => ({
-    type: types.SET_PRODUCT,
-    payload: { product, content }
+  setBlog: (blog, content) => ({
+    type: types.SET_BLOG,
+    payload: { blog, content }
   }),
-  addProduct: (product, content) => ({
-    type: types.ADD_PRODUCT,
-    payload: { product, content }
+  addBlog: (blog, content) => ({
+    type: types.ADD_BLOG,
+    payload: { blog, content }
   }),
-  updateProduct: (product, content) => ({
-    type: types.UPDATE_PRODUCT,
-    payload: { product, content }
+  updateBlog: (blog, content) => ({
+    type: types.UPDATE_BLOG,
+    payload: { blog, content }
   }),
-  deleteProduct: (product, content) => ({
-    type: types.DELETE_PRODUCT,
-    payload: { product, content }
+  deleteBlog: (blog, content) => ({
+    type: types.DELETE_BLOG,
+    payload: { blog, content }
   }),
-  loadAllProducts,
-  loadProduct,
+  loadAllBlogs,
+  loadBlog,
+  addBlogToStore,
+  editBlogToStore,
   uploadImage,
-  addProductToStore,
-  editProductToStore,
-  deleteProductToStore
+  deleteBlogToStore
 };

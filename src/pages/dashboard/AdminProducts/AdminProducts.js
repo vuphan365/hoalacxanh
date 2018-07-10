@@ -5,7 +5,7 @@ import { actions as productTypesActions } from '../../../reducers/productTypes/a
 import { routeHistory } from '../../../store';
 import { Link } from 'react-router';
 import toastr from 'toastr';
-import loadingIcon from "../../../assets/images/loading-icon.gif";
+
 const tableStyle = {
   marginTop: '2%'
 }
@@ -47,7 +47,6 @@ class AdminProducts extends Component {
     } else {
       this.setState({ productTypes: this.props.productTypes });
     }
-
   }
   addNewProduct = () => {
     console.log("/admin/products/add");

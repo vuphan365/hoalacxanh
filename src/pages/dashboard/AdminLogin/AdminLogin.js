@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { actions as authAdminActions } from '../../../reducers/authAdmin/actions';
 import loadingIcon from "../../../assets/images/loading-icon.gif";

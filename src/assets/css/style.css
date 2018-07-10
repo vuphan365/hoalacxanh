@@ -67,7 +67,7 @@
 }
 .loader {
   display: block;
-  margin: 17% 40%;
+  margin: 17% 40% 2% 40%;
   border: 16px solid #f3f3f3;
   border-radius: 50%;
   border-top: 16px solid #3498db;
@@ -75,6 +75,10 @@
   height: 120px;
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
+}
+.updating-container {
+  margin: 5% 20%;
+  text-align: center;
 }
 
 /* Safari */
