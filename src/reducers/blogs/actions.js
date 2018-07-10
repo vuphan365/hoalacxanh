@@ -114,7 +114,7 @@ function uploadImage(image) {
 function deleteBlogToStore(blog){
   return dispatch => {
     return new Promise ((resolve, reject) => {
-      const url = `${BACKEND_URL}/product/delete/${blog.blogID}`;
+      const url = `${BACKEND_URL}/blog/delete/${blog.blogID}`;
       const { blogID } = blog;
       const body = JSON.stringify({ blogID});
       adminFetch.post(url, body).then(res => {
