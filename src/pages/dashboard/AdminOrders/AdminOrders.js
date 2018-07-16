@@ -4,7 +4,8 @@ import { actions as ordersActions } from '../../../reducers/orders/actions';
 import toastr from 'toastr';
 
 const tableStyle = {
-  marginTop: '2%'
+  marginTop: '2%',
+  width : '90%'
 }
 
 class AdminOrders extends Component {

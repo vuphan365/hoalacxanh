@@ -5,7 +5,8 @@ import toastr from 'toastr';
 import { Link } from 'react-router';
 
 const tableStyle = {
-  marginTop: '2%'
+  marginTop: '2%',
+  width : '90%'
 }
 
 class AdminBlogs extends Component {

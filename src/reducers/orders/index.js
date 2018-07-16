@@ -4,7 +4,8 @@ import { types } from "./constants";
 const initialState = {
   orders : [],
   statusOrders : [],
-  viewOrders :[]
+  viewOrders :[],
+  orderOfUser : []
 };
 
 const orders = (state = initialState, action) => {
@@ -13,6 +14,9 @@ const orders = (state = initialState, action) => {
     case types.SET_ORDERS:
       // set status from action and return it
       return { ...state, orders: Object.assign({}, action.payload.orders) };
+    case types.SET_ORDERS_OF_USER:
+      // set status from action and return it
+      return { ...state, orderOfUser: Object.assign({}, action.payload.orders) };  
     case types.SET_VIEW_ORDERS:
       // set status from action and return it
       return { ...state, viewOrders: Object.assign({}, action.payload.viewOrders) };  

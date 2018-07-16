@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 const App = () => {
   return (
     <Provider store={store}>
-      <Router routes={routes} history={routeHistory}/>
+      <Router onUpdate={() => window.scrollTo(0, 0)} routes={routes} history={routeHistory}/>
     </Provider>
   );
 }

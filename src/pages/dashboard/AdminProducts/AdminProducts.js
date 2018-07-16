@@ -7,7 +7,8 @@ import { Link } from 'react-router';
 import toastr from 'toastr';
 
 const tableStyle = {
-  marginTop: '2%'
+  marginTop: '2%',
+  width : '90%'
 }
 
 class AdminProducts extends Component {

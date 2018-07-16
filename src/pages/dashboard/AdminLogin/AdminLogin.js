@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from "react-redux";
 import { actions as authAdminActions } from '../../../reducers/authAdmin/actions';
 import loadingIcon from "../../../assets/images/loading-icon.gif";
-import Footer from "../../../components/layouts/Footer";
 import Cookies from "js-cookie";
 import '../../../assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css';
 import './AdminLogin.css';
@@ -75,7 +74,6 @@ class AdminLogin extends Component {
             </div>
           </div>
 			  </div>
-        <Footer></Footer>
       </div>
     )
   }

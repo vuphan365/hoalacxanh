@@ -52,3 +52,36 @@ export const Updating = Loadable({
   loader: () => import("../components/Updating"),
   loading : Loading
 });
+
+export const HomePage = Loadable({
+  loader: () => import("../pages/UserWebsite/HomePage"),
+  loading : Loading
+});
+
+export const Categories = Loadable({
+  loader: () => import("../pages/UserWebsite/Categories"),
+  loading : Loading
+});
+
+export const Blogs = Loadable({
+  loader: () => import("../pages/UserWebsite/Blogs"),
+  loading : Loading
+});
+export const BlogPage = Loadable({
+  loader: () => import("../pages/UserWebsite/Blogs/BlogPage"),
+  loading : Loading
+});
+export const ProductInfo = Loadable({
+  loader: () => import("../pages/UserWebsite/ProductInfo"),
+  loading : Loading
+});
+
+export const UserInformation = Loadable({
+  loader: () => import("../pages/UserWebsite/UserInformation"),
+  loading : Loading
+});
+
+export const CartPage = Loadable({
+  loader: () => import("../pages/UserWebsite/CartPage"),
+  loading : Loading
+});

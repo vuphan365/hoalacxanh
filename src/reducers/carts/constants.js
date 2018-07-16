@@ -1,0 +1,8 @@
+// declare types of action
+export const types = {
+  SET_CARTS: "MAIN/SET_CARTS",
+  UPDATE_CART : "MAIN/UPDATE_CART",
+  ADD_CART : "MAIN/ADD_CART",
+  DELETE_CART : "MAIN/DELETE_CART",
+  DELETE_CARTS : "MAIN/DELETE_CARTS"
+};

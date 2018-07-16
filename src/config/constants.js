@@ -1,5 +1,5 @@
 const dev = {
-  //BACKEND_URL: "http://localhost:3005"
+  // BACKEND_URL: "http://localhost:3005"
   BACKEND_URL: "https://hoalacxanh-server.azurewebsites.net"
 };
 
