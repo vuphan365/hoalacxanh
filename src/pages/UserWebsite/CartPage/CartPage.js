@@ -42,18 +42,22 @@ class CartPage extends Component {
     } else {
       let address = this.props.address;
       let phone = this.props.phone;
-      if (!phone ||!address) {
+      if (!phone || !address || !phone.trim() === "" || !address.trim() === "") {
         toastr.error("Vui lòng bổ sung đầy đủ thông tin trước khi mua hàng");
         routeHistory.push("/me/info");
-      }
-      let itemList = this.state.carts;
-      let userID = this.state.carts[0].userID;
-      this.props.addOrderToStore(userID, itemList).then(() => {
-        this.props.loadOrdersOfUser().then(() => {
-          this.props.deleteAllCartToStore(userID).then(() => {
-            this.setState({ loading: false, carts: this.props.carts });
-            toastr.success("Thanh toán giỏ hàng thành công", );
-            routeHistory.push("/me/follow");
+      } else {
+        let itemList = this.state.carts;
+        let userID = this.state.carts[0].userID;
+        this.props.addOrderToStore(userID, itemList).then(() => {
+          this.props.loadOrdersOfUser().then(() => {
+            this.props.deleteAllCartToStore(userID).then(() => {
+              this.setState({ loading: false, carts: this.props.carts });
+              toastr.success("Thanh toán giỏ hàng thành công", );
+              routeHistory.push("/me/follow");
+            }).catch(() => {
+              toastr.error("Thanh toán giỏ hàng thất bại");
+              this.setState({ loading: false, carts: this.props.carts });
+            })
           }).catch(() => {
             toastr.error("Thanh toán giỏ hàng thất bại");
             this.setState({ loading: false, carts: this.props.carts });
@@ -62,11 +66,9 @@ class CartPage extends Component {
           toastr.error("Thanh toán giỏ hàng thất bại");
           this.setState({ loading: false, carts: this.props.carts });
         })
-      }).catch(() => {
-        toastr.error("Thanh toán giỏ hàng thất bại");
-        this.setState({ loading: false, carts: this.props.carts });
-      })
+      }
     }
+
 
   }
   removeACart = (id) => {

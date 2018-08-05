@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, IndexRoute} from 'react-router';
+import {Route} from 'react-router';
 import { AdminLogin, AdminProducts, AdminRedirect, UpdateProduct,AdminOrders, AdminBlogs, 
           UpdateBlog, Updating, HomePage, Categories, Blogs, BlogPage, ProductInfo,
           UserInformation, CartPage} from './routes';
@@ -31,6 +31,5 @@ export default (
           <Route path="/admin/add" component={Updating } />
           <Route path="/admin/password" component={Updating } />
         </Route>
-      
     </Route>
   );

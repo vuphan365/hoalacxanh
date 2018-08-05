@@ -55,12 +55,14 @@ export const Updating = Loadable({
 
 export const HomePage = Loadable({
   loader: () => import("../pages/UserWebsite/HomePage"),
-  loading : Loading
+  loading : Loading,
+  delay: 5000
 });
 
 export const Categories = Loadable({
   loader: () => import("../pages/UserWebsite/Categories"),
-  loading : Loading
+  loading : Loading,
+  
 });
 
 export const Blogs = Loadable({
